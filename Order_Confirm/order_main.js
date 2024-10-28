@@ -30,15 +30,15 @@ function allItems(array) {
 
     for (var i in array) {
         var row = "<tr style='border-bottom: 1px solid black; height: 40px; background-color: #faeef0;'>";
-        row += "<td style='padding-left: 60px;font-family: Kaisei Tokumin;'>" + array[i].product_id + "</td>";
-        row += "<td style='padding-left: 50px;font-family: Kaisei Tokumin;'>" + array[i].name_product + "</td>";
-        row += "<td style='padding-left: 50px;font-family: Kaisei Tokumin;'>" + array[i].name_user + "</td>";
-        row += "<td style='padding-left: 60px;font-family: Kaisei Tokumin;'>" + array[i].price + "</td>";
-        row += "<td style='padding-left: 80px;font-family: Kaisei Tokumin;'>" + array[i].quantity + "</td>";
-        row += "<td style='padding-left: 60px;font-family: Kaisei Tokumin;'>" + array[i].price_total + "</td>";
+        row += "<td style='padding-left: 80px;font-family: Kaisei Tokumin;'>" + array[i].product_id + "</td>";
+        row += "<td style='padding-left: 70px;font-family: Kaisei Tokumin;'>" + array[i].name_product + "</td>";
+        row += "<td style='padding-left: 70px;font-family: Kaisei Tokumin;'>" + array[i].name_user + "</td>";
+        row += "<td style='padding-left: 80px;font-family: Kaisei Tokumin;'>" + array[i].price + "</td>";
+        row += "<td style='padding-left: 104px;font-family: Kaisei Tokumin;'>" + array[i].quantity + "</td>";
+        row += "<td style='padding-left: 83px;font-family: Kaisei Tokumin;'>" + array[i].price_total + "</td>";
         
         // Thay thế dòng trạng thái bằng dropdown
-        row += "<td style='padding-left: 50px; padding-right:20px ;'>" +
+        row += "<td style='padding-left: 52px; padding-right:20px ;'>" +
             "<div class='status'>" +
             "<div class='dropdown'>" +
             "<button class='dropdown_button' id='dropdownButton-" + i + "'>" + array[i].status + "</button>" +
