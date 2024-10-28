@@ -1,4 +1,11 @@
+let dataJson = JSON.parse(localStorage.getItem("cardList")) || [];
+// Hàm lọc sản phẩm có kieu là "miss"
+function filterMissProducts(data) {
+    return data.filter(product => product.quantity === 2);
 
+}
+// Lọc sản phẩm chỉ với kieu là "miss"
+const filteredProducts = filterMissProducts(dataJson);
 // Mảng để lưu trữ thông tin sản phẩm đã mua
 let purchasedProducts = [];
 

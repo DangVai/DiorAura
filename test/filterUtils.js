@@ -1,31 +1,22 @@
 
-// Lấy phần tử thanh trượt và phần tử để hiển thị giá trị
 const priceSlider = document.getElementById('priceRange');
 const selectedPrice = document.getElementById('selectedPrice');
 
-// Khai báo biến để lưu giá trị giá hiện tại
 let currentPrice = priceSlider.value;
 
-// Hàm để cập nhật giá trị hiển thị và biến khi người dùng thay đổi thanh trượt
 priceSlider.addEventListener('input', function () {
 
     selectedPrice.textContent = priceSlider.value;
     currentPrice = priceSlider.value;
-
-    // Gọi hàm chọn lại để lọc sản phẩm mỗi khi thay đổi giá
     chose();
 });
 
 
-
-let dataJson = JSON.parse(localStorage.getItem("cardList")) || [];
-
-// Hàm render sản phẩm với hỗ trợ tìm kiếm
 function renderProducts(listchose = [], listchose2 = [], searchTerm = '') {
     let div = '';
 
-    for (let i = 0; i < dataJson.length; i++) {
-        let product = dataJson[i];
+    for (let i = 0; i < filteredProducts.length; i++) {
+        let product = filteredProducts[i];
         let listproduct = product.gender;
         let listproduct2 = product.type;
 
@@ -57,7 +48,7 @@ function renderProducts(listchose = [], listchose2 = [], searchTerm = '') {
     }
 
     document.getElementById('product-Discover').innerHTML = div || '<p>No products found</p>';
-};
+}
 
 // Hàm xem chi tiết sản phẩm
 function viewDetails(productId) {

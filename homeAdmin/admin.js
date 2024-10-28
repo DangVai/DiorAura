@@ -1,14 +1,14 @@
 const cardList = [
     {
-        id: 1,
-        name: 'MISS DIOR',
-        content: 'Eau de parfum - floral and fresh notes',
-        price: 125.00,
-        description: 'Miss Dior Eau de Parfum reinvents itself with a new scent... [truncated for brevity]',
-        image: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxASEBUQERAPDw8QFRAQEBYREBAPDg8OFRUWGBcSFRYYHSggGBolGxYVITEhJSkrLi4uGB8zODMtNygtLisBCgoKDg0OGxAQGzIfICUwLS8tLS0tMy4rNSs3LS0tKy0tLS4tLS0tLS0tMC0rLS0tLS0tLS01LTUtLS0tLS0tLf/AABEIAPQAzgMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABAUBAwYCB//EAEMQAAIBAgMFBAYGBwcFAAAAAAABAgMRBBIhBTFBUYEiYXGRBhMyocHRQlJTsdLwI2KCkrPD8TNUcnODsuEUFjRDov/EABkBAQADAQEAAAAAAAAAAAAAAAABAgMEBf/EACURAQEAAgEEAQQDAQAAAAAAAAABAhEDBBIhMVETIkFxgaHxMv/aAAwDAQACEQMRAD8A...',
-        type: 'perfume',
-        gender: 'Woman',
-        category: 'Miss Dior'
+    id: 1,
+    name: 'MISS DIOR',
+    content: 'Eau de parfum - floral and fresh notes',
+    price: 125.00,
+    description: 'Miss Dior Eau de Parfum reinvents itself with a new scent... [truncated for brevity]',
+    image: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxASEBUQERAPDw8QFRAQEBYREBAPDg8OFRUWGBcSFRYYHSggGBolGxYVITEhJSkrLi4uGB8zODMtNygtLisBCgoKDg0OGxAQGzIfICUwLS8tLS0tMy4rNSs3LS0tKy0tLS4tLS0tLS0tMC0rLS0tLS0tLS01LTUtLS0tLS0tLf/AABEIAPQAzgMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABAUBAwYCB//EAEMQAAIBAgMFBAYGBwcFAAAAAAABAgMRBBIhBTFBUYEiYXGRBhMyocHRQlJTsdLwI2KCkrPD8TNUcnODsuEUFjRDov/EABkBAQADAQEAAAAAAAAAAAAAAAABAgMEBf/EACURAQEAAgEEAQQDAQAAAAAAAAABAhEDBBIhMVETIkFxgaHxMv/aAAwDAQACEQMRAD8A...',
+    type: 'perfume',
+    gender: 'Woman',
+    category: 'Miss Dior'
     }
 ];
 
