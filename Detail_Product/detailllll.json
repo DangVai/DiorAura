@@ -1,0 +1,151 @@
+{
+    "1": {
+      "name": "Lady Dior Bag",
+      "description": "Unisex Eau de Parfum - Chypre Notes",
+      "price": "$120.00",
+      "sizeOptions": [{"size": "Size S", "price": "$120.00"},{"size": "Size M", "price": "$230.00"},{"size": "Size L", "price": "$480.00"}],
+      "quantity": 1,
+      "images": [{"src": "missdior1.jpg", "alt": "Product Thumbnail 1"},{"src": "missdior2.jpg", "alt": "Product Thumbnail 2"},{"src": "missdior3.jpg", "alt": "Product Thumbnail 3"}],
+      "descriptionText": [
+        "Miss Dior Eau de Parfum reinvents itself with a new scent.",
+        "In 1947, Miss Dior was born out of love with a promise to create a fragrance that would re-enchant the lives of women and open up their hearts to new possibilities. With a floral bouquet, it delivers a blend of vibrant notes intertwined with renewed happiness, poetry, and harmony for Christian Dior."
+      ],
+      "reviews": {
+        "total_reviews": 13858,
+        "average_rating": 4.5,
+        "ratings": [{"stars": 5, "percent": "85%", "count": 11256},{"stars": 4, "percent": "50%", "count": 1777},{"stars": 3, "percent": "25%", "count": 539},{"stars": 2, "percent": "20%", "count": 161},{"stars": 1, "percent": "10%", "count": 125}],
+        "review_details": [{"rating": "★★★★☆","date": "2 years ago","title": "Long lasting and Luxurious","content": "[This review was collected as part of a promotion.] I was super excited to be receiving a Dior perfume as I've always heard great things and when I've smelled them in store they have always been divine. This perfume has a pretty strong scent so if it isn't your thing it's probably not for you. This floral notes mixed with almost a vanilla/musk finish are amazing. The perfume comes in a beautiful box with plastic wrap around it. Inside the bottle is a beautiful bottle with a cute ribbon around the top. This isn't something I would've picked for myself but I love stepping outside the box and would definitely repurchase in the future.",
+            "brand": "DIOR",
+            "source": "Originally posted on dior.com"
+          }
+        ]
+      }
+    },
+        "2": {
+          "name": "Gris Dior",
+          "description": "Unisex Eau de Parfum - Chypre Notes",
+          "price": "$120.00",
+          "sizeOptions": [
+            {"size": "Size 40mL", "price": "$700.00"},
+            {"size": "Size 125mL", "price": "$780.00"},
+            {"size": "Size 250mL", "price": "$100.00"}
+          ],
+          "quantity": 1,
+          "images": [
+            {"src": "missdior4.jpg", "alt": "Product Thumbnail 1"},
+            {"src": "missdior5.jpg", "alt": "Product Thumbnail 2"},
+            {"src": "missdior6.jpg", "alt": "Product Thumbnail 3"}
+          ],
+          "descriptionText": [
+            "GRIS DIOR, THE CHYPRE-ROSY SILHOUETTE PLEATED WITH CONTRASTS.",
+            "Gris Dior eau de parfum is an olfactory enigma that forms an indivisible whole, a reflection of its namesake color. Like chypre-rosy pleats, Gris Dior unfolds its different floral and woody facets in turn."
+          ],
+          "reviews": {
+            "total_reviews": 100,
+            "average_rating": 4.7,
+            "ratings": [
+              {"stars": 5, "percent": "85%", "count": 1256},
+              {"stars": 4, "percent": "50%", "count": 2777},
+              {"stars": 3, "percent": "25%", "count": 509},
+              {"stars": 2, "percent": "20%", "count": 261},
+              {"stars": 1, "percent": "10%", "count": 825}
+            ],
+            "review_details": [
+              {
+                "rating": "★★★★☆",
+                "date": "4 years ago",
+                "title": "Gris Wrapping Service",
+                "content": "A sensation of fullness and volume is thus created, a unisex silhouette with multiple olfactory hues that come together in a mysterious chypre",
+                "brand": "DIOR",
+                "source": "Originally posted on dior.com"
+              }
+            ]
+          }
+        },
+        "3": {
+            "name": "Lady Dior Bag",
+            "description": "Unisex Eau de Parfum - Chypre Notes",
+            "price": "$120.00",
+            "sizeOptions": [
+              {"size": "Size S", "price": "$120.00"},
+              {"size": "Size M", "price": "$230.00"},
+              {"size": "Size L", "price": "$480.00"}
+            ],
+            "quantity": 1,
+            "images": [
+              {"src": "missdior7.jpg", "alt": "Product Thumbnail 1"},
+              {"src": "missdior8.jpg", "alt": "Product Thumbnail 2"},
+              {"src": "missdior9.jpg", "alt": "Product Thumbnail 3"}
+            ],
+            "descriptionText": [
+              "Miss Dior Eau de Parfum reinvents itself with a new scent.",
+              "In 1947, Miss Dior was born out of love with a promise to create a fragrance that would re-enchant the lives of women and open up their hearts to new possibilities. With a floral bouquet, it delivers a blend of vibrant notes intertwined with renewed happiness, poetry, and harmony for Christian Dior."
+            ],
+            "reviews": {
+              "total_reviews": 13858,
+              "average_rating": 4.5,
+              "ratings": [
+                {"stars": 5, "percent": "85%", "count": 11256},
+                {"stars": 4, "percent": "50%", "count": 1777},
+                {"stars": 3, "percent": "25%", "count": 539},
+                {"stars": 2, "percent": "20%", "count": 161},
+                {"stars": 1, "percent": "10%", "count": 125}
+             ], 
+              "review_details": [
+                {
+                  "rating": "★★★★☆",
+                  "date": "2 years ago",
+                  "title": "Long lasting and Luxurious",
+                  "content": "[This review was collected as part of a promotion.] I was super excited to be receiving a Dior perfume as I've always heard great things and when I've smelled them in store they have always been divine. This perfume has a pretty strong scent so if it isn't your thing it's probably not for you. This floral notes mixed with almost a vanilla/musk finish are amazing. The perfume comes in a beautiful box with plastic wrap around it. Inside the bottle is a beautiful bottle with a cute ribbon around the top. This isn't something I would've picked for myself but I love stepping outside the box and would definitely repurchase in the future.",
+                  "brand": "DIOR",
+                  "source": "Originally posted on dior.com"
+                }
+              ]
+            }
+          },
+          "4": {
+            "name": "Lady Dior Bag",
+            "description": "Unisex Eau de Parfum - Chypre Notes",
+            "price": "$120.00",
+            "sizeOptions": [
+              {"size": "Size S", "price": "$120.00"},
+              {"size": "Size M", "price": "$230.00"},
+              {"size": "Size L", "price": "$480.00"}
+            ],
+            "quantity": 1,
+            "images": [
+              {"src": "sauvage1.jpg", "alt": "Product Thumbnail 1"},
+              {"src": "sauvage2.jpg", "alt": "Product Thumbnail 2"},
+              {"src": "sauvage3.jpg", "alt": "Product Thumbnail 3"}
+            ],
+            "descriptionText": [
+              "Miss Dior Eau de Parfum reinvents itself with a new scent.",
+              "In 1947, Miss Dior was born out of love with a promise to create a fragrance that would re-enchant the lives of women and open up their hearts to new possibilities. With a floral bouquet, it delivers a blend of vibrant notes intertwined with renewed happiness, poetry, and harmony for Christian Dior."
+            ],
+            "reviews": {
+              "total_reviews": 13858,
+              "average_rating": 4.5,
+              "ratings": [
+                {"stars": 5, "percent": "85%", "count": 11256},
+                {"stars": 4, "percent": "50%", "count": 1777},
+                {"stars": 3, "percent": "25%", "count": 539},
+                {"stars": 2, "percent": "20%", "count": 161},
+                {"stars": 1, "percent": "10%", "count": 125}
+              ],
+              "review_details": [
+                {
+                  "rating": "★★★★☆",
+                  "date": "2 years ago",
+                  "title": "Long lasting and Luxurious",
+                  "content": "[This review was collected as part of a promotion.] I was super excited to be receiving a Dior perfume as I've always heard great things and when I've smelled them in store they have always been divine. This perfume has a pretty strong scent so if it isn't your thing it's probably not for you. This floral notes mixed with almost a vanilla/musk finish are amazing. The perfume comes in a beautiful box with plastic wrap around it. Inside the bottle is a beautiful bottle with a cute ribbon around the top. This isn't something I would've picked for myself but I love stepping outside the box and would definitely repurchase in the future.",
+                  "brand": "DIOR",
+                  "source": "Originally posted on dior.com"
+                }
+              ]
+            }
+          }
+  }
+  
+
+
+  
