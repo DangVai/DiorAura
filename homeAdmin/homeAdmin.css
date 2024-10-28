@@ -242,7 +242,7 @@ b{
     height: 45px;
     border-radius: 10px;
     border: none;
-    background-color: #f87e86;
+    background-color:#4ecf4e ;
     margin-top: 30px;
     font-family: "Kaisei Tokumin";
     font-size: 20px;
@@ -252,15 +252,15 @@ b{
 }
 .subProduct:hover{
     cursor: pointer;
-    background-color: #d8b17d;
+    background-color:#60eb60 ;
 }
 .cancelProduct{
-    background-color: #4ecf4e;
+    background-color: #f87e86;
     /* float: right; */
 }
 .cancelProduct:hover{
     cursor: pointer;
-    background-color: #60eb60;
+    background-color: #d8b17d;
 }
 .btn-group{
     display: flex;

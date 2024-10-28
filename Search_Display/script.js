@@ -98,7 +98,8 @@ priceSlider.addEventListener('input', function () {
 
 
 let dataJson = JSON.parse(localStorage.getItem("cardList")) || [];
-
+console.log("MT",dataJson);
+console.log("MT",dataJson[1].content);
 
 function renderProducts(listchose = [], listchose2 = [], listchose3 = [], listchose4 = []) {
     let div = '';
@@ -220,7 +221,7 @@ function displayResults(){
         <div class='course-item'>
             <img src='${item.image}' alt='${item.name}'/>
             <h3>${item.name}</h3>
-            <p>${item.title}</p>
+            <p>${item.content}</p>
             <h5 class="price">From $:<span class="price-value">${item.price}</span></h5>
            <a class="more-info">></a>
         </div>

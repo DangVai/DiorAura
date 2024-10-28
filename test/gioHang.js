@@ -65,6 +65,12 @@ function renderCart() {
     updateTotal(); // Cập nhật tổng số lượng và giá tiền
 }
 
+// Cập nhật giỏ hàng vào localStorage và hiển thị lại
+function updateCart() {
+    localStorage.setItem('cardList', JSON.stringify(cart));
+    renderCart();
+}
+
 // Hàm cập nhật tổng số lượng và giá tiền trong giỏ hàng
 function updateTotal() {
     const totalItems = document.getElementById('total-items');
@@ -74,32 +80,47 @@ function updateTotal() {
     let totalQuantity = 0;
     let totalCost = 0;
 
+    // Lấy listID từ localStorage
+    const listID = JSON.parse(localStorage.getItem('listID')) || [];
+
+    // Đếm số lần xuất hiện của mỗi ID trong listID
+    const idCount = {};
+    listID.forEach(id => {
+        idCount[id] = (idCount[id] || 0) + 1;
+    });
+
+    // Lặp qua từng sản phẩm trong giỏ hàng dựa vào idCount
     cart.forEach(item => {
-        if (item.selected) {
-            totalQuantity += item.quantity;
-            totalCost += item.price * item.quantity;
+        const count = idCount[item.id];
+
+        if (count && item.selected) { // Chỉ tính những sản phẩm được chọn
+            totalQuantity += count;
+            totalCost += item.price * count;
         }
     });
 
+    // Cập nhật số lượng và giá tiền trong giao diện
     totalItems.textContent = totalQuantity;
     totalProducts.textContent = totalQuantity;
     totalPrice.textContent = `$${totalCost.toFixed(2)}`;
 }
 
+// Lắng nghe sự kiện change trên checkbox "Select all"
+document.getElementById('select-all').addEventListener('change', function (e) {
+    const isChecked = e.target.checked;
+
+    // Cập nhật trạng thái selected của tất cả sản phẩm trong giỏ hàng
+    cart.forEach(item => {
+        item.selected = isChecked; // Gán trạng thái selected cho tất cả sản phẩm theo checkbox "Select all"
+    });
+
+    // Cập nhật lại cart và hiển thị lại giỏ hàng
+    updateCart();
+    updateTotal(); // Gọi hàm cập nhật tổng số lượng và giá tiền
+});
+
 // Hiển thị giỏ hàng ban đầu
 renderCart();
-
-// Hàm thay đổi số lượng sản phẩm
-function changeQuantity(productId, delta) {
-    const product = cart.find(item => item.id === productId);
-    if (product) {
-        product.quantity += delta;
-        if (product.quantity < 1) product.quantity = 1;
-        localStorage.setItem('cardList', JSON.stringify(cart));
-        renderCart();
-    }
-}
-
 
 // Hàm xóa một sản phẩm khỏi giỏ hàng tạm thời
 function deleteProduct(productId) {
