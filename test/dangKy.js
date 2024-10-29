@@ -197,3 +197,26 @@ logoutBtn.addEventListener('click', function () {
 
     logoutBtn.style.display = 'none';
 });
+
+function handleCart() {
+    if (userStatus) {
+        openCart();
+    } else {
+        overlay2.style.display = 'block';
+        incluLsandsg.style.display = 'flex';
+        cartContainer.style.display = 'none';
+    }
+}
+function handleChatbox() {
+    if (userStatus) {
+        container_chat.style.display = 'flex';
+        chatBubble.style.display = 'none';
+    } else {
+
+        overlay2.style.display = 'block';
+        incluLsandsg.style.display = 'flex';
+        container_chat.style.display = 'none';
+        chatBubble.style.display = 'flex';
+    }
+}
+chatBubble.addEventListener('click', handleChatbox);
