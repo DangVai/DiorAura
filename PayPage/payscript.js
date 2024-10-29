@@ -1,38 +1,36 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Chọn các phần tử cho giá và số lượng
-    const products = [
-        {
-            name: "LADY DIOR BAG",
-            quantity: 2,
-            price: 164.00
-        },
-        {
-            name: "Super Potent Serum",
-            quantity: 1,
-            price: 66.00
-        }
-    ];
+    // Lấy ID của các sản phẩm trong giỏ hàng từ localStorage
+    const cartProductIds = JSON.parse(localStorage.getItem('listID')) || [];
+    const cartProducts = JSON.parse(localStorage.getItem('cardList')) || [];  
 
-    // Hàm tính tổng chi phí
-    function calculateTotal(products) {
-        let total = 0;
-        products.forEach(product => {
-            total += product.quantity * product.price;
-        });
-        return total.toFixed(2);
-    }
+    // Lọc các sản phẩm trong giỏ hàng dựa trên ID đã lưu trong listID
+    const selectedProducts = cartProducts.filter(product => cartProductIds.includes(product.id));
 
-    // Hiển thị tổng chi phí lên HTML
-    function displayTotal() {
-        const totalPaymentElement = document.querySelector('.total-payment');
-        const total = calculateTotal(products);
-        totalPaymentElement.textContent = `$${total}`;
-    }
+    // Log để kiểm tra xem selectedProducts có chứa đúng sản phẩm không
+    console.log("Selected Products:", selectedProducts);
 
-    // Hiển thị tổng ban đầu
-    displayTotal();
+    // Tham chiếu tới container để hiển thị các sản phẩm
+    const orderContainer = document.querySelector('.g-grid-col1');
+
+    selectedProducts.forEach(product => {
+        const productHTML = `
+            <div class="order-item">
+                <img src="${product.image}" alt="${product.name}">
+                <div class="order-details">
+                    <p class="pname">${product.name}</p>
+                    <p class="describe">${product.description}</p>
+                    <p class="qty">Quantity: ${product.quantity}</p>
+                    <p class="price">Total: $${(product.price * product.quantity).toFixed(2)}</p>
+                </div>
+            </div>
+        `;
+        orderContainer.insertAdjacentHTML('beforeend', productHTML);
+    });
+
+    // Tính toán và hiển thị tổng chi phí
+    const totalCost = selectedProducts.reduce((sum, product) => sum + product.price * product.quantity, 0);
+    document.querySelector('.total-payment').textContent = `$${totalCost.toFixed(2)}`;
 });
-
 
 //PHẦN ICON THÔNG BÁO
 function toggleNotification() {
