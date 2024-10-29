@@ -74,7 +74,7 @@ renderProducts(cardList7, 'product-DiscoverSix');
 const chats = {
     "chat1": {
         name: "Mai Tram",
-        image: "https://inkythuatso.com/uploads/thumbnails/800/2023/03/1-hinh-anh-ngay-moi-hanh-phuc-sieu-cute-inkythuatso-09-13-35-50.jpg",
+        image: "./Image/chat2.jpg",
         messages: [
             { sender: "friend", text: "How much perfume you sell?", time: "10:35" },
             { sender: "me", text: "Hi!", time: "10:36" },
@@ -84,7 +84,7 @@ const chats = {
     },
     "chat2": {
         name: "Cong Doan",
-        image: "https://inkythuatso.com/uploads/thumbnails/800/2023/03/1-hinh-anh-ngay-moi-hanh-phuc-sieu-cute-inkythuatso-09-13-35-50.jpg",
+        image: "./Image/chat3.jpg",
         messages: [
             { sender: "friend", text: "Hello, excuse me!!!", time: "11:59" },
             { sender: "me", text: "Hello!", time: "12:00" },
@@ -95,7 +95,7 @@ const chats = {
     },
     "chat3": {
         name: "Mai Mai",
-        image: "https://inkythuatso.com/uploads/thumbnails/800/2023/03/1-hinh-anh-ngay-moi-hanh-phuc-sieu-cute-inkythuatso-09-13-35-50.jpg",
+        image: "./Image/chat4.jpg",
         messages: [
             { sender: "friend", text: "Surprised", time: "00:00" },
             { sender: "me", text: "Is everything okay?", time: "00:01" },
@@ -107,7 +107,7 @@ const chats = {
     },
     "chat4": {
         name: "Cute",
-        image: "https://inkythuatso.com/uploads/thumbnails/800/2023/03/1-hinh-anh-ngay-moi-hanh-phuc-sieu-cute-inkythuatso-09-13-35-50.jpg",
+        image: "./Image/chat5.jpg",
         messages: [
             { sender: "friend", text: "Hello", time: "00:00" },
             { sender: "me", text: "Are you okay?", time: "00:01" },
@@ -119,7 +119,7 @@ const chats = {
     },
     "chat5": {
         name: "Love",
-        image: "https://inkythuatso.com/uploads/thumbnails/800/2023/03/1-hinh-anh-ngay-moi-hanh-phuc-sieu-cute-inkythuatso-09-13-35-50.jpg",
+        image: "./Image/chat6.jpg",
         messages: [
             { sender: "friend", text: "Hi", time: "00:00" },
             { sender: "me", text: "What are you doing?", time: "00:01" },
@@ -144,7 +144,7 @@ const chatBox = document.getElementById('chatBox');
 const chatHeaderName = document.getElementById('chatHeaderName');
 const chatHeaderImage = document.getElementById('chatHeaderImage');
 const chatList = document.getElementById('chatList');
-let currentChatId = null;
+let currentChatId = null; // Biến lưu ID cuộc trò chuyện hiện tại
 
 // PHẦN CHATBOX
 // Hàm lấy thời gian hiện tại ở định dạng HH:MM
@@ -152,173 +152,183 @@ function getCurrentTime() {
     const now = new Date();
     let hours = now.getHours();
     let minutes = now.getMinutes();
-    hours = hours < 10 ? '0' + hours : hours;
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    return `${hours}:${minutes}`;
+    hours = hours < 10 ? '0' + hours : hours; // Đảm bảo giờ luôn có 2 chữ số
+    minutes = minutes < 10 ? '0' + minutes : minutes; // Đảm bảo phút luôn có 2 chữ số
+    return `${hours}:${minutes}`; // Trả về thời gian theo định dạng HH:MM
 }
 
-//PHẦN CHATBOX
+// PHẦN CHATBOX
 // Hàm hiển thị các tin nhắn trong chatBox
 function displayMessages(chatId) {
-    const chat = chats[chatId];
-    if (!chat) return;
+    const chat = chats[chatId]; // Lấy cuộc trò chuyện theo ID
+    if (!chat) return; // Nếu không có cuộc trò chuyện, thoát hàm
 
+    // Cập nhật tên và hình ảnh của người chat
     chatHeaderName.innerHTML = `${chat.name} <br><span>online</span>`;
     chatHeaderImage.src = chat.image;
 
-
+    // Xóa nội dung chatBox trước khi hiển thị tin nhắn mới
     chatBox.innerHTML = '';
-    chat.messages.forEach(msg => {
+    chat.messages.forEach(msg => { // Duyệt qua từng tin nhắn trong cuộc trò chuyện
         const messageElement = document.createElement('div');
-        messageElement.classList.add('message');
+        messageElement.classList.add('message'); // Thêm lớp cho phần tử tin nhắn
         if (msg.sender === 'me') {
-            messageElement.classList.add('my_message');
+            messageElement.classList.add('my_message'); // Nếu tin nhắn của mình
         } else {
-            messageElement.classList.add('frnd_message');
+            messageElement.classList.add('frnd_message'); // Nếu tin nhắn của bạn
         }
 
+        // Tạo phần tử chứa nội dung tin nhắn
         const messageParagraph = document.createElement('p');
-        messageParagraph.innerHTML = `${msg.text}<br><span>${msg.time}</span>`;
+        messageParagraph.innerHTML = `${msg.text}<br><span>${msg.time}</span>`; // Nội dung và thời gian
 
-        messageElement.appendChild(messageParagraph);
-        chatBox.appendChild(messageElement);
+        messageElement.appendChild(messageParagraph); // Thêm nội dung vào phần tử tin nhắn
+        chatBox.appendChild(messageElement); // Thêm tin nhắn vào chatBox
     });
-    chatBox.scrollTop = chatBox.scrollHeight;
+    chatBox.scrollTop = chatBox.scrollHeight; // Cuộn xuống dưới cùng chatBox
 }
-//PHẦN CHATBOX
+
+// PHẦN CHATBOX
+// Hàm xử lý sự kiện khi click vào khối chat
 function handleChatBlockClick(event) {
-    const block = event.currentTarget;
-    const chatId = block.getAttribute('data-chat-id');
+    const block = event.currentTarget; // Lấy phần tử chat đã click
+    const chatId = block.getAttribute('data-chat-id'); // Lấy ID của cuộc trò chuyện
 
-    if (currentChatId === chatId) return; 
+    if (currentChatId === chatId) return; // Nếu cuộc trò chuyện đang mở, thoát hàm
 
-
+    // Xóa lớp active khỏi tất cả các khối chat
     document.querySelectorAll('.chatlist .block').forEach(b => b.classList.remove('active'));
 
+    block.classList.add('active'); // Thêm lớp active cho khối chat đã click
+    currentChatId = chatId; // Cập nhật ID cuộc trò chuyện hiện tại
 
-    block.classList.add('active');
+    displayMessages(chatId); // Hiển thị tin nhắn cho cuộc trò chuyện đã chọn
 
-
-    currentChatId = chatId;
-
-
-    displayMessages(chatId);
-
-    const unreadBadge = block.querySelector('b');
+    // Xử lý việc đánh dấu đã đọc
+    const unreadBadge = block.querySelector('b'); 
     if (unreadBadge) {
-        chats[chatId].unread = 0;
-        unreadBadge.remove();
+        chats[chatId].unread = 0; // Đặt số tin nhắn chưa đọc về 0
+        unreadBadge.remove(); // Xóa huy hiệu số tin nhắn chưa đọc
     }
-    const p = block.querySelector('.message_p p');
-    const p1 = block.querySelector('.time');
+    const p = block.querySelector('.message_p p'); // Tìm phần tử hiển thị tin nhắn
+    const p1 = block.querySelector('.time'); // Tìm phần tử hiển thị thời gian
     if (p) {
-        p.style.fontWeight = 'normal';
-        p.style.color = 'rgb(170, 170, 170)';
+        p.style.fontWeight = 'normal'; // Đặt kiểu chữ bình thường
+        p.style.color = 'rgb(170, 170, 170)'; // Đặt màu chữ
     }
     if (p1) {
-        p1.style.fontWeight = 'normal';
+        p1.style.fontWeight = 'normal'; 
         p1.style.color = 'rgb(17, 17, 17)';
     }
 }
-//PHẦN CHATBOX
+
+// PHẦN CHATBOX
+// Gán sự kiện click cho tất cả các khối chat
 document.querySelectorAll('.chatlist .block').forEach(block => {
     block.addEventListener('click', handleChatBlockClick);
 });
 
 // Xử lý chatbox
 function handleChatbox() {
-    if (userStatus) {
-        container_chat.style.display = 'flex';
-        chatBubble.style.display = 'none';
+    if (userStatus) { // Kiểm tra trạng thái người dùng
+        container_chat.style.display = 'flex'; // Hiển thị chat container
+        chatBubble.style.display = 'none'; // Ẩn chat bubble
     } else {
-        overlay2.style.display = 'block';
-        incluLsandsg.style.display = 'flex';
-        container_chat.style.display = 'none';
-        chatBubble.style.display = 'flex';
+        overlay2.style.display = 'block'; // Hiển thị overlay
+        incluLsandsg.style.display = 'flex'; // Hiển thị form đăng nhập
+        container_chat.style.display = 'none'; // Ẩn chat container
+        chatBubble.style.display = 'flex'; // Hiển thị chat bubble
     }
 }
-chatBubble.addEventListener('click', handleChatbox);
+chatBubble.addEventListener('click', handleChatbox); // Gán sự kiện click cho chat bubble
 
-
-
-//PHẦN CHATBOX
-
-const firstChatBlock = document.querySelector('.chatlist .block');
+// PHẦN CHATBOX
+const firstChatBlock = document.querySelector('.chatlist .block'); // Lấy khối chat đầu tiên
 chatBubble.addEventListener('click', () => {
-    container_chat.style.display = 'flex';
-    chatBubble.style.display = 'none';
+    container_chat.style.display = 'flex'; // Hiển thị chat container
+    chatBubble.style.display = 'none'; // Ẩn chat bubble
     if (firstChatBlock) {
-        firstChatBlock.style.display = 'flex';
-        firstChatBlock.click();
+        firstChatBlock.style.display = 'flex'; // Hiển thị khối chat đầu tiên
+        firstChatBlock.click(); // Mô phỏng click vào khối chat đầu tiên
     }
 });
+
+// Xử lý sự kiện click nút đóng chat
 closeChat.addEventListener('click', () => {
-    container_chat.style.display = 'none';
-    chatBubble.style.display = 'flex';
+    container_chat.style.display = 'none'; // Ẩn chat container
+    chatBubble.style.display = 'flex'; // Hiển thị lại chat bubble
 });
 
+// Xử lý gửi tin nhắn
 sendMessageBtn.addEventListener('click', () => {
     if (!currentChatId) {
-        alert("Please select a chat first!");
+        alert("Please select a chat first!"); // Nếu chưa chọn chat, hiển thị thông báo
         return;
     }
 
-    const messageText = messageInput.value.trim();
-    if (messageText !== '') {
-        const currentTime = getCurrentTime();
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message', 'my_message');
-        const messageParagraph = document.createElement('p');
-        messageParagraph.innerHTML = `${messageText}<br><span>${currentTime}</span>`;
-        messageElement.appendChild(messageParagraph);
-        chatBox.appendChild(messageElement);
-        chats[currentChatId].messages.push({
+    const messageText = messageInput.value.trim(); // Lấy nội dung tin nhắn
+    if (messageText !== '') { // Nếu nội dung không rỗng
+        const currentTime = getCurrentTime(); // Lấy thời gian hiện tại
+        const messageElement = document.createElement('div'); // Tạo phần tử chứa tin nhắn
+        messageElement.classList.add('message', 'my_message'); // Thêm lớp cho tin nhắn của mình
+        const messageParagraph = document.createElement('p'); // Tạo phần tử chứa nội dung tin nhắn
+        messageParagraph.innerHTML = `${messageText}<br><span>${currentTime}</span>`; // Nội dung và thời gian
+        messageElement.appendChild(messageParagraph); // Thêm nội dung vào phần tử tin nhắn
+        chatBox.appendChild(messageElement); // Thêm tin nhắn vào chatBox
+        chats[currentChatId].messages.push({ // Lưu tin nhắn vào đối tượng chats
             sender: 'me',
             text: messageText,
             time: currentTime
         });
-        chatBox.scrollTop = chatBox.scrollHeight;
-        messageInput.value = '';
+        chatBox.scrollTop = chatBox.scrollHeight; // Cuộn xuống dưới cùng chatBox
+        messageInput.value = ''; // Xóa nội dung input
     }
 });
+
+// Xử lý nhấn phím Enter để gửi tin nhắn
 messageInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-        sendMessageBtn.click();
+        sendMessageBtn.click(); // Gọi sự kiện click của nút gửi
     }
 });
 
+// Tìm kiếm chat
 const searchInput = document.getElementById('search-input');
-const chatBlocks = document.querySelectorAll('.block'); 
+const chatBlocks = document.querySelectorAll('.block'); // Lấy tất cả các khối chat
 
 searchInput.addEventListener('keypress', function (event) {
-    if (event.key === 'Enter') {
-        const searchTerm = searchInput.value.toLowerCase();
+    if (event.key === 'Enter') { // Nếu nhấn Enter
+        const searchTerm = searchInput.value.toLowerCase(); // Lấy từ khóa tìm kiếm
         chatBlocks.forEach(chatBlock => {
-            chatBlock.style.display = 'flex'; 
+            chatBlock.style.display = 'flex'; // Hiển thị tất cả các khối chat
         });
-        let found = false;
+        let found = false; // Biến kiểm tra có tìm thấy hay không
         chatBlocks.forEach(chatBlock => {
-            const title = chatBlock.querySelector('h4').textContent.toLowerCase(); 
+            const title = chatBlock.querySelector('h4').textContent.toLowerCase(); // Lấy tiêu đề chat
             if (title.includes(searchTerm)) {
-                found = true;
+                found = true; // Nếu tìm thấy, đánh dấu là tìm thấy
             } else {
-                chatBlock.style.display = 'none'; 
+                chatBlock.style.display = 'none'; // Nếu không tìm thấy, ẩn khối chat
             }
         });
 
         if (!found) {
-            alert('Không tìm thấy chat nào phù hợp.');
+            alert('Không tìm thấy chat nào phù hợp.'); // Thông báo nếu không tìm thấy chat nào
         }
-        searchInput.value = '';
+        searchInput.value = ''; // Xóa nội dung input tìm kiếm
     }
 });
+
+// Xử lý gửi hình ảnh
 const attachIcon = document.getElementById('attachIcon');
 const fileInput = document.getElementById('fileInput');
+
+// Hàm gửi hình ảnh
 function sendImage(file) {
-    const reader = new FileReader();
+    const reader = new FileReader(); // Tạo đối tượng FileReader
     reader.onload = function (event) {
-        const imageDataUrl = event.target.result;
-        const currentTime = getCurrentTime();
+        const imageDataUrl = event.target.result; // Lấy dữ liệu hình ảnh
+        const currentTime = getCurrentTime(); // Lấy thời gian hiện tại
         const message = {
             sender: 'me',
             type: 'image',
@@ -326,49 +336,51 @@ function sendImage(file) {
             time: currentTime
         };
         if (currentChatId) {
-            chats[currentChatId].messages.push(message);
+            chats[currentChatId].messages.push(message); // Lưu tin nhắn hình ảnh vào đối tượng chats
         }
 
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message', 'my_message');
+        const messageElement = document.createElement('div'); // Tạo phần tử chứa tin nhắn hình ảnh
+        messageElement.classList.add('message', 'my_message'); // Thêm lớp cho tin nhắn của mình
 
-        const messageContent = document.createElement('p');
-        if (message.type === 'image') {
-            const img = document.createElement('img');
-            img.src = message.content;
-            img.alt = 'Sent Image';
-            img.style.maxWidth = '200px';
-            img.style.borderRadius = '10px';
-            messageContent.appendChild(img);
+        const messageContent = document.createElement('p'); // Tạo phần tử chứa nội dung tin nhắn
+        if (message.type === 'image') { // Nếu tin nhắn là hình ảnh
+            const img = document.createElement('img'); // Tạo phần tử hình ảnh
+            img.src = message.content; // Gán đường dẫn hình ảnh
+            img.alt = 'Sent Image'; // Gán thuộc tính alt
+            img.style.maxWidth = '200px'; // Đặt chiều rộng tối đa
+            img.style.borderRadius = '10px'; // Đặt bo góc cho hình ảnh
+            messageContent.appendChild(img); // Thêm hình ảnh vào nội dung tin nhắn
         } else {
-            messageContent.innerHTML = `${message.text}<br><span>${message.time}</span>`;
+            messageContent.innerHTML = `${message.text}<br><span>${message.time}</span>`; // Nội dung tin nhắn
         }
-        if (message.type !== 'image') {
-            const timeSpan = document.createElement('span');
-            timeSpan.textContent = message.time;
-            messageContent.appendChild(timeSpan);
+        if (message.type !== 'image') { // Nếu không phải hình ảnh
+            const timeSpan = document.createElement('span'); // Tạo phần tử chứa thời gian
+            timeSpan.textContent = message.time; // Gán thời gian
+            messageContent.appendChild(timeSpan); // Thêm thời gian vào nội dung
         }
 
-        messageElement.appendChild(messageContent);
-        chatBox.appendChild(messageElement);
-
-        chatBox.scrollTop = chatBox.scrollHeight;
+        messageElement.appendChild(messageContent); // Thêm nội dung vào phần tử tin nhắn
+        chatBox.appendChild(messageElement); // Thêm tin nhắn vào chatBox
+        chatBox.scrollTop = chatBox.scrollHeight; // Cuộn xuống dưới cùng chatBox
     };
 
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(file); // Đọc file hình ảnh
 }
+
+// Xử lý sự kiện click vào icon đính kèm
 attachIcon.addEventListener('click', () => {
-    fileInput.click();
+    fileInput.click(); // Mô phỏng click vào input file
 });
 
+// Xử lý sự kiện thay đổi file input
 fileInput.addEventListener('change', (event) => {
-    const file = event.target.files[0];
-    if (file && file.type.startsWith('image/')) {
-        sendImage(file);
+    const file = event.target.files[0]; // Lấy file đầu tiên từ input
+    if (file && file.type.startsWith('image/')) { // Kiểm tra nếu là file hình ảnh
+        sendImage(file); // Gọi hàm gửi hình ảnh
     } else {
-        alert('Please select a valid image file.');
+        alert('Please select a valid image file.'); // Thông báo nếu không phải hình ảnh
     }
-    fileInput.value = '';
+    fileInput.value = ''; // Xóa nội dung input file
 });
 
 //PHẦN ICON THÔNG BÁO
